@@ -10,11 +10,12 @@
     function DashboardController($q, dataservice, logger) {
         var vm = this;
         vm.news = {
-            title: 'helloWorld',
-            description: 'Hot Towel Angular is a SPA template for Angular developers.'
+            title: 'HottowelMysqlEmployeesLoopback (HMEL)',
+            description: 'HottowelMysqlEmployeesLoopback Project Generated from HotTowel Angular and Loopback. ' +
+            'It uses Mysql seed Employees DB'
         };
         vm.messageCount = 0;
-        vm.people = [];
+        vm.deps = [];
         vm.title = 'Dashboard';
 
         activate();
@@ -35,8 +36,8 @@
 
         function getPeople() {
             return dataservice.getPeople().then(function (data) {
-                vm.people = data;
-                return vm.people;
+                vm.depts = data;
+                return vm.depts;
             });
         }
     }

@@ -26,24 +26,20 @@
             <div class="row">
                 <div class="col-md-6">
                     <div class="widget wviolet">
-                        <div ht-widget-header title="People"
+                        <div ht-widget-header title="Departments"
                              allow-collapse="true"></div>
                         <div class="widget-content text-center text-info">
                             <table class="table table-condensed table-striped">
                                 <thead>
                                     <tr>
-                                        <th>First Name</th>
-                                        <th>Last Name</th>
-                                        <th>Age</th>
-                                        <th>Location</th>
+                                        <th>Id</th>
+                                        <th>Name</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr ng-repeat="p in vm.people">
-                                        <td>{{p.firstName}}</td>
-                                        <td>{{p.lastName}}</td>
-                                        <td>{{p.age}}</td>
-                                        <td>{{p.location}}</td>
+                                    <tr ng-repeat="d in vm.depts">
+                                        <td>{{d.deptNo}}</td>
+                                        <td>{{d.deptName}}</td>
                                     </tr>
                                 </tbody>
                             </table>

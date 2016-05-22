@@ -1,0 +1,60 @@
+{
+  "_meta": {
+    "sources": [
+      "loopback/common/models",
+      "loopback/server/models",
+      "../common/models",
+      "./models"
+    ],
+    "mixins": [
+      "loopback/common/mixins",
+      "loopback/server/mixins",
+      "../common/mixins",
+      "./mixins"
+    ]
+  },
+  "User": {
+    "dataSource": "mysql",
+    "public": true
+  },
+  "AccessToken": {
+    "dataSource": "db",
+    "public": false
+  },
+  "ACL": {
+    "dataSource": "db",
+    "public": false
+  },
+  "RoleMapping": {
+    "dataSource": "db",
+    "public": false
+  },
+  "Role": {
+    "dataSource": "db",
+    "public": false
+  },
+  "Departments": {
+    "dataSource": "mysql",
+    "public": true
+  },
+  "DeptEmp": {
+    "dataSource": "mysql",
+    "public": true
+  },
+  "DeptManager": {
+    "dataSource": "mysql",
+    "public": true
+  },
+  "Employees": {
+    "dataSource": "mysql",
+    "public": true
+  },
+  "Salaries": {
+    "dataSource": "mysql",
+    "public": true
+  },
+  "Titles": {
+    "dataSource": "mysql",
+    "public": true
+  }
+}

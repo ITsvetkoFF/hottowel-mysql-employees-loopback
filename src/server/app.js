@@ -1,55 +1,33 @@
-/*jshint node:true*/
-'use strict';
+var loopback = require('loopback');
+var boot = require('loopback-boot');
 
-var express = require('express');
-var app = express();
-var bodyParser = require('body-parser');
-var favicon = require('serve-favicon');
-var logger = require('morgan');
-var port = process.env.PORT || 8001;
-var four0four = require('./utils/404')();
+var app = module.exports = loopback();
 
-var environment = process.env.NODE_ENV;
+app.start = function () {
+    // start the web server
+    return app.listen(function () {
+        app.emit('started');
+        var baseUrl = app.get('url').replace(/\/$/, '');
+        console.log('Web client is at: %s', baseUrl);
 
-app.use(favicon(__dirname + '/favicon.ico'));
-app.use(bodyParser.urlencoded({extended: true}));
-app.use(bodyParser.json());
-app.use(logger('dev'));
+        // app.use('/explorer', explorer(app, {basePath: '/api'}));
+        if (app.get('loopback-component-explorer')) {
+            var explorerPath = app.get('loopback-component-explorer').mountPath;
+            console.log('Browse your REST API at %s%s', baseUrl, explorerPath);
+            console.log('Your REST API url is %s%s', baseUrl, '/api');
+        }
+    });
+};
 
-app.use('/api', require('./routes'));
+// Bootstrap the application, configure models, datasources and middleware.
+// Sub-apps like REST API are mounted via boot scripts.
+boot(app, __dirname, function (err) {
+    if (err) {
+        throw err;
+    }
 
-console.log('About to crank up node');
-console.log('PORT=' + port);
-console.log('NODE_ENV=' + environment);
-
-switch (environment){
-    case 'build':
-        console.log('** BUILD **');
-        app.use(express.static('./build/'));
-        // Any invalid calls for templateUrls are under app/* and should return 404
-        app.use('/app/*', function(req, res, next) {
-            four0four.send404(req, res);
-        });
-        // Any deep link calls should return index.html
-        app.use('/*', express.static('./build/index.html'));
-        break;
-    default:
-        console.log('** DEV **');
-        app.use(express.static('./src/client/'));
-        app.use(express.static('./'));
-        app.use(express.static('./tmp'));
-        // Any invalid calls for templateUrls are under app/* and should return 404
-        app.use('/app/*', function(req, res, next) {
-            four0four.send404(req, res);
-        });
-        // Any deep link calls should return index.html
-        app.use('/*', express.static('./src/client/index.html'));
-        break;
-}
-
-app.listen(port, function() {
-    console.log('Express server listening on port ' + port);
-    console.log('env = ' + app.get('env') +
-        '\n__dirname = ' + __dirname  +
-        '\nprocess.cwd = ' + process.cwd());
+    // start the server if `$ node server.js`
+    if (require.main === module) {
+        app.start();
+    }
 });

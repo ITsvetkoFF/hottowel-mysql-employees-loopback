@@ -35,11 +35,7 @@ describe('DashboardController', function() {
             });
 
             it('should have at least 1 person', function () {
-                expect(controller.people).to.have.length.above(0);
-            });
-
-            it('should have people count of 5', function () {
-                expect(controller.people).to.have.length(7);
+                expect(controller.depts).to.have.length.above(0);
             });
         });
     });

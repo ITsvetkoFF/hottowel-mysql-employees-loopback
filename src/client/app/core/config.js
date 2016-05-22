@@ -13,8 +13,8 @@
     }
 
     var config = {
-        appErrorPrefix: '[helloWorld Error] ',
-        appTitle: 'helloWorld'
+        appErrorPrefix: '[HMEL Error] ',
+        appTitle: 'HottowelMysqlEmployeesLoopback'
     };
 
     core.value('config', config);

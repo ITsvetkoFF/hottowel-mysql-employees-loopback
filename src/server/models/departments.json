@@ -1,0 +1,48 @@
+{
+  "name": "Departments",
+  "base": "PersistedModel",
+  "options": {
+    "idInjection": true,
+    "mysql": {
+      "schema": "employees",
+      "table": "departments"
+    },
+    "relations": {}
+  },
+  "properties": {
+    "deptNo": {
+      "type": "String",
+      "length": 4,
+      "precision": null,
+      "scale": null,
+      "id": 1,
+      "mysql": {
+        "columnName": "dept_no",
+        "dataType": "char",
+        "dataLength": 4,
+        "dataPrecision": null,
+        "dataScale": null,
+        "nullable": "N"
+      }
+    },
+    "deptName": {
+      "type": "String",
+      "required": true,
+      "length": 40,
+      "precision": null,
+      "scale": null,
+      "mysql": {
+        "columnName": "dept_name",
+        "dataType": "varchar",
+        "dataLength": 40,
+        "dataPrecision": null,
+        "dataScale": null,
+        "nullable": "N"
+      }
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}

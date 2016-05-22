@@ -1,0 +1,92 @@
+{
+  "name": "DeptEmp",
+  "base": "PersistedModel",
+  "options": {
+    "idInjection": false,
+    "mysql": {
+      "schema": "employees",
+      "table": "dept_emp"
+    },
+    "relations": {
+      "employees": {
+        "model": "Employees",
+        "type": "belongsTo",
+        "foreignKey": "empNo"
+      },
+      "departments": {
+        "model": "Departments",
+        "type": "belongsTo",
+        "foreignKey": "deptNo"
+      }
+    }
+  },
+  "properties": {
+    "empNo": {
+      "type": "Number",
+      "required": true,
+      "length": null,
+      "precision": 10,
+      "scale": 0,
+      "id": 1,
+      "mysql": {
+        "columnName": "emp_no",
+        "dataType": "int",
+        "dataLength": null,
+        "dataPrecision": 10,
+        "dataScale": 0,
+        "nullable": "N"
+      }
+    },
+    "deptNo": {
+      "type": "String",
+      "required": true,
+      "length": 4,
+      "precision": null,
+      "scale": null,
+      "id": 2,
+      "mysql": {
+        "columnName": "dept_no",
+        "dataType": "char",
+        "dataLength": 4,
+        "dataPrecision": null,
+        "dataScale": null,
+        "nullable": "N"
+      }
+    },
+    "fromDate": {
+      "type": "Date",
+      "required": true,
+      "length": null,
+      "precision": null,
+      "scale": null,
+      "mysql": {
+        "columnName": "from_date",
+        "dataType": "date",
+        "dataLength": null,
+        "dataPrecision": null,
+        "dataScale": null,
+        "nullable": "N"
+      }
+    },
+    "toDate": {
+      "type": "Date",
+      "required": true,
+      "length": null,
+      "precision": null,
+      "scale": null,
+      "mysql": {
+        "columnName": "to_date",
+        "dataType": "date",
+        "dataLength": null,
+        "dataPrecision": null,
+        "dataScale": null,
+        "nullable": "N"
+      }
+    }
+  }
+,
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}

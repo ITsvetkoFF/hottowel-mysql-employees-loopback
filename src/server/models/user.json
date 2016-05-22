@@ -1,0 +1,44 @@
+{
+  "name": "User",
+  "base": "PersistedModel",
+  "properties": {
+    "realm": {
+      "type": "string"
+    },
+    "username": {
+      "type": "string"
+    },
+    "credentials": {
+      "type": "object"
+    },
+    "challenges": {
+      "type": "object"
+    },
+    "email": {
+      "type": "string",
+      "required": true
+    },
+    "emailVerified": {
+      "type": "boolean"
+    },
+    "status": {
+      "type": "string"
+    },
+    "created": {
+      "type": "string",
+      "format": "date"
+    },
+    "lastUpdated": {
+      "type": "string",
+      "format": "date"
+    },
+    "id": {
+      "type": "number",
+      "format": "double"
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}
