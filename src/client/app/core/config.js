@@ -3,6 +3,25 @@
 
     var core = angular.module('app.core');
 
+    var config = {
+        appErrorPrefix: '[HMEL Error] ',
+        appTitle: 'HottowelMysqlEmployeesLoopback'
+    };
+
+    core.value('config', config);
+    
+    
+    // Add configuration to delete global libraries 
+    core.config(removeGlobalsConfig);
+    
+    function removeGlobalsConfig() {
+        delete window.toastr;
+        // delete window.d3; 
+        delete window.moment;
+    }
+    
+    
+    // Add Toastr configuration
     core.config(toastrConfig);
 
     toastrConfig.$inject = ['toastr'];
@@ -12,13 +31,8 @@
         toastr.options.positionClass = 'toast-bottom-right';
     }
 
-    var config = {
-        appErrorPrefix: '[HMEL Error] ',
-        appTitle: 'HottowelMysqlEmployeesLoopback'
-    };
-
-    core.value('config', config);
-
+    
+    // Add app configuration
     core.config(configure);
 
     configure.$inject = ['$logProvider', 'routerHelperProvider', 'exceptionHandlerProvider'];

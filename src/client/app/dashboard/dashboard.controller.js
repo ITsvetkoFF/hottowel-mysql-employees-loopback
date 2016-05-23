@@ -14,28 +14,28 @@
             description: 'HottowelMysqlEmployeesLoopback Project Generated from HotTowel Angular and Loopback. ' +
             'It uses Mysql seed Employees DB'
         };
-        vm.messageCount = 0;
+        vm.employeeCount = 0;
         vm.deps = [];
         vm.title = 'Dashboard';
 
         activate();
 
         function activate() {
-            var promises = [getMessageCount(), getPeople()];
+            var promises = [getEmployeeCount(), getDepartments()];
             return $q.all(promises).then(function() {
                 logger.info('Activated Dashboard View');
             });
         }
 
-        function getMessageCount() {
-            return dataservice.getMessageCount().then(function (data) {
-                vm.messageCount = data;
-                return vm.messageCount;
+        function getEmployeeCount() {
+            return dataservice.getEmployeeCount().then(function (data) {
+                vm.employeeCount = data.count;
+                return vm.employeeCount;
             });
         }
 
-        function getPeople() {
-            return dataservice.getPeople().then(function (data) {
+        function getDepartments() {
+            return dataservice.getDepartments().then(function (data) {
                 vm.depts = data;
                 return vm.depts;
             });

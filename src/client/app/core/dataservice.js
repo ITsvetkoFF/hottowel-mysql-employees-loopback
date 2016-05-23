@@ -9,26 +9,45 @@
     /* @ngInject */
     function dataservice($http, $q, exception, logger) {
         var service = {
-            getPeople: getDepartments,
-            getMessageCount: getMessageCount
+            getDepartments: getDepartments,
+            getDepartmentManagers: getDepartmentManagers,
+            getEmployees: getEmployees,
+            getEmployeeById: getEmployeeById,
+            getEmployeeCount: getEmployeeCount
         };
 
         return service;
 
-        function getMessageCount() { return $q.when(72); }
+        function getEmployeeCount() {
+            return $http.get('api/Employees/count').then(success).catch(fail);
+        }
 
         function getDepartments() {
-            return $http.get('/api/Departments')
-                .then(success)
-                .catch(fail);
+            return $http.get('/api/Departments').then(success).catch(fail);
+        }
 
-            function success(response) {
-                return response.data;
-            }
+        function getDepartmentManagers(deptNo) {
+            return $http.get('api/DeptManagers',
+                {params: {filter: {where: {deptNo: deptNo}, include: 'employees'}}})
+                .then(success).catch(fail);
+        }
 
-            function fail(e) {
-                return exception.catcher('XHR Failed for getDepts')(e);
-            }
+        function getEmployees(offset, limit) {
+            return $http.get('/api/Employees?filter[limit]=' + limit + '&filter[offset]=' + offset)
+                .then(success).catch(fail);
+        }
+
+        function getEmployeeById(id) {
+            return $http.get('/api/Employees/' + id)
+                .then(success).catch(fail);
+        }
+
+        function success(response) {
+            return response.data;
+        }
+
+        function fail(e) {
+            return exception.catcher('XHR Failed')(e);
         }
     }
 })();

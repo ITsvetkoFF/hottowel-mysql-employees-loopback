@@ -3,9 +3,22 @@
         <div class="container">
             <div class="row">
                 <div class="widget wviolet">
-                    <div ht-widget-header title="{{vm.title}}"></div>
+                    <div ht-widget-header title="{{vmAdmin.title}}"></div>
                     <div class="widget-content user">
-                        <h3>TODO: Implement Your Features</h3>
+                        <h3>Department history</h3>
+
+                        <select name="mySelect" id="mySelect"
+                                ng-options="dept as dept.deptName for dept in vmAdmin.depts track by dept.deptNo"
+                                ng-model="vmAdmin.selectedDept"
+                                ng-change="vmAdmin.showDeptStats()">
+                        </select>
+
+                        <ht-timeline data="vmAdmin.dates"></ht-timeline>
+
+
+                        <br>
+                        <pre>{{vmAdmin|json}}</pre>
+
                     </div>
                     <div class="widget-foot">
                         <div class="clearfix"></div>

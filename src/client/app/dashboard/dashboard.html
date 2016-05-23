@@ -4,18 +4,10 @@
             <div class="row">
                 <div class="col-md-12">
                     <ul class="today-datas">
-                        <li class="blightblue">
-                            <div class="pull-left"><i class="fa fa-plane"></i></div>
-                            <div class="datas-text pull-right">
-                                <span class="bold">May 18 - 19, 2015</span> Castle Resort, Neverland
-                            </div>
-                            <div class="clearfix"></div>
-                        </li>
-
                         <li class="borange">
                             <div class="pull-left"><i class="fa fa-envelope"></i></div>
                             <div class="datas-text pull-right">
-                                <span class="bold">{{vm.messageCount}}</span> Messages
+                                <span class="bold">{{vmDash.employeeCount}}</span> Employees
                             </div>
                             <div class="clearfix"></div>
                         </li>
@@ -37,7 +29,7 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr ng-repeat="d in vm.depts">
+                                    <tr ng-repeat="d in vmDash.depts">
                                         <td>{{d.deptNo}}</td>
                                         <td>{{d.deptName}}</td>
                                     </tr>
@@ -51,10 +43,10 @@
                 </div>
                 <div class="col-md-6">
                     <div class="widget wgreen">
-                        <div ht-widget-header title="{{vm.news.title}}"
+                        <div ht-widget-header title="{{vmDash.news.title}}"
                              allow-collapse="true"></div>
                         <div class="widget-content text-center text-info">
-                            <small>{{vm.news.description}}</small>
+                            <small>{{vmDash.news.description}}</small>
                         </div>
                         <div class="widget-foot">
                             <div class="clearfix"></div>

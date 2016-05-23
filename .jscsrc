@@ -1,6 +1,7 @@
 {
     "excludeFiles": ["node_modules/**", "bower_components/**"],
 
+    "esnext": true,
     "requireCurlyBraces": [
         "if",
         "else",
@@ -22,8 +23,8 @@
 
     "disallowMultipleLineStrings": true,
     "disallowMixedSpacesAndTabs": true,
-    "disallowTrailingWhitespace": true,
-    "disallowSpaceAfterPrefixUnaryOperators": true,
+    "disallowTrailingWhitespace": false,
+    "disallowSpaceAfterPrefixUnaryOperators": false,
     "disallowMultipleVarDecl": null,
 
     "requireSpaceAfterKeywords": [
@@ -61,7 +62,7 @@
         "checkTypes": true
     },
 
-    "disallowMultipleLineBreaks": true,
+    "disallowMultipleLineBreaks": false,
 
     "disallowCommaBeforeLineBreak": null,
     "disallowDanglingUnderscores": null,
