@@ -19,7 +19,6 @@
         function HtTimelineController(d3) {
 
             var ctrl = this;
-            var data = [];
 
             var width = 600;
             var height = 200;
@@ -45,16 +44,6 @@
             }
 
             this.$onChanges = drawGraph;
-
-            // Object.defineProperty(this, 'data', {
-            //     get: function () {
-            //         return data;
-            //     },
-            //
-            //     set: function (newVal) {
-            //         data = newVal;
-            //     }
-            // });
 
         }
     }
