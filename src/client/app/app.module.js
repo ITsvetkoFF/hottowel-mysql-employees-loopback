@@ -4,7 +4,7 @@
     angular.module('app', [
         'app.core',
         'app.widgets',
-        'app.admin',
+        'app.employees',
         'app.dashboard',
         'app.layout'
     ]);

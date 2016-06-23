@@ -3,9 +3,19 @@
         <div class="container">
             <div class="row">
                 <div class="widget wviolet">
-                    <div ht-widget-header title="{{vm.title}}"></div>
+                    <div ht-widget-header title="{{vmEmployees.title}}"></div>
                     <div class="widget-content user">
                         <h3>TODO: Implement Your Features</h3>
+
+                        <table class="table table-condensed table-striped">
+                            <tr ng-repeat="employee in vmEmployees.employees">
+                                <td>{{employee.firstName}}</td>
+                            </tr>
+                        </table>
+
+                        <pre>
+                            {{vm.employees | json}}
+                        </pre>
                     </div>
                     <div class="widget-foot">
                         <div class="clearfix"></div>
